@@ -1,0 +1,5 @@
+player/*
+!player/temp.txt.txt
+gods/*
+!gods/temp.txt.txt
+log/*.log

@@ -1,0 +1,23 @@
+area: where all the areas are defined.  Areas contain information for mobs (NPCs, like shopkeepers etc), objects, and rooms.
+player: all players are recorded here
+gods: players that are gods have files in here with god information inside: level, trust (security level), and title.
+
+area2 was me fixing linking between rooms in different areas, not sure if it's needed anymore so I'll just keep it around for now.
+
+The makefile in src/ is already ready to go on linux, so you don't have to do anything (I had to actually tweak it a bit to get it working since the code is so damn old)
+
+To shut the game down either kill the process or log in as an immortal and issue the 'shutdown' command.
+
+The area/ and src/ dirs are in separate repos to make things less complicated.  I thought about using git submodule but that sounded like a pain in the ass. :P
+area: https://github.com/epringi/rot-area.git
+src: https://github.com/epringi/rot-src.git
+
+Things on my mind for the game:
+   Get the reboot function working.
+   Get the copyover function working; this allows updating of areas and such without rebooting the game, so players don't get booted.
+   Maybe make the startup script in bin/ work?
+   Make the in-game room / area editing less awkward.
+   Revamp the Mud School area (the training area for new players)
+
+
+Anyway, read the README in doc/, log in and poke around.
