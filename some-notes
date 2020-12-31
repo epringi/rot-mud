@@ -13,12 +13,10 @@ area: https://github.com/epringi/rot-area.git
 src: https://github.com/epringi/rot-src.git
 
 Things on my mind for the game:
-   Get the reboot function working.
-   Get the copyover function working; this allows updating of areas and such without rebooting the game, so players don't get booted.
-   Maybe make the startup script in bin/ work?
    Make the in-game room / area editing less awkward.
    Revamp the Mud School area (the training area for new players)
 
+   What's with the timestampy player Id??
 
 Anyway, read the README in doc/, log in and poke around.
 

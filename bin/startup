@@ -1,13 +1,11 @@
 #!/bin/csh
 # Written by Furey.
 # With additions from Tony and Alander.
+# Tweaks by Liz Pringi to bring the script into 2020
 
-# Set the port number.
+# Set the port number and grab it from the command line if supplied.
 set port = 9400
 if ( "$1" != "" ) set port="$1"
-
-# Change to area directory.
-cd ../area
 
 # Set limits.
 if ( -e shutdown.txt ) rm -f shutdown.txt
@@ -24,19 +22,23 @@ while ( 1 )
 
     # Run rom.
     # Check if already running
-    set matches = `netstat -a | grep ":$port " | grep -c LISTEN`
+    echo "Checking if MUD is already running on port $port"
+    set matches = `lsof -i:$port -t`
     if ( $matches >= 1 ) then
         # Already running
-        echo MUD Already running.
+        echo "MUD Already running."
         exit 0
     endif
-    ../area/rom $port >&! $logfile
+    echo "Starting MUD..."
+    ../bin/rom $port >&! $logfile
 
 
     # Restart, giving old connections a chance to die.
     if ( -e shutdown.txt ) then
+	echo "MUD terminated."
 	rm -f shutdown.txt
 	exit 0
     endif
-    sleep 15
+    echo "MUD restarting..."
+    sleep 3
 end

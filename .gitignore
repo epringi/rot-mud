@@ -3,3 +3,4 @@ player/*
 gods/*
 !gods/temp.txt.txt
 log/*.log
+bin/rom
